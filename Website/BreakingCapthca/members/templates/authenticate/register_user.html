@@ -1,0 +1,14 @@
+{% extends "base.html" %} {% block content %} {% if form.errors %}
+<p>there were in error.</p>
+
+{% endif %}
+<div class="shadow p-4 mb-5 bg-body rounded">
+  <h1>Register</h1>
+  <br />
+  <form action="{% url 'register' %}" method="POST">
+    {% csrf_token %} {{form.as_p}}
+    <br />
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+{% endblock %}
