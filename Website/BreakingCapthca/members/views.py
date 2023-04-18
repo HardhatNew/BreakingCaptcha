@@ -18,7 +18,7 @@ def login_user(request):
             return redirect('home')
         else:
             messages.error(
-                request, "there was an error logging In, try again later.")
+                request, "The username or password are not correct, please try again later.")
             return redirect('login')
     else:
         return render(request, 'authenticate/login.html')
