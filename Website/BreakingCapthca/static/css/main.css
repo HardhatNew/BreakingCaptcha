@@ -19,6 +19,9 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 	padding: 0;
 	vertical-align: baseline;
 }
+body{
+    background-color: #f6f4f4;
+}
 html {
 	overflow-y: scroll; /* Keeps page centred in all browsers regardless of content height */
 	-webkit-text-size-adjust: 100%; /* Prevents iOS text size adjust after orientation change, without disabling user zoom */
@@ -63,7 +66,7 @@ button::-moz-focus-inner {
 ====> 2.1 Headings
 --------------------------------------------------------------*/
 h1, h2, h3, h4, h5, h6 {
-	color: #666666;
+	color: #383838;
 	line-height: 1.4;
 	padding-bottom: 15px;
 	font-weight: normal;
@@ -90,11 +93,12 @@ textarea {
 	font-weight: 300;
 }
 p {
-	color: #888888;
+	color: #000000;
 	font-size: 15px;
+	font-weight: bold;
 	line-height: 1.5;
 	margin-bottom: 15px;
-	font-weight: 300;
+
 }
 
 /*--------------------------------------------------------------
@@ -193,3 +197,17 @@ button:hover {
 	-moz-box-shadow:0 0 2px rgba(0, 0, 0, 0.6);
 	box-shadow:0 0 2px rgba(0, 0, 0, 0.6);
 }
+.center{
+    width: 60% !important;
+    margin: 150px auto !important;
+    padding: 20px !important;
+}
+.img_car{
+    width: 100% !important;
+    height: 450px !important;
+}
+.container{
+    margin-top: 50px;
+
+}
+
