@@ -46,3 +46,10 @@ def register_user(request):
     return render(request, 'authenticate/register_user.html', {
         'form': form
     })
+
+
+#def reset_user_password():
+#    return 
+
+#def reset_user_password_done():
+#    return
