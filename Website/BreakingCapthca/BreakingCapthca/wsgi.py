@@ -1,3 +1,4 @@
+# WSGI file is how the Python web app and the server communicate
 """
 WSGI config for BreakingCapthca project.
 
