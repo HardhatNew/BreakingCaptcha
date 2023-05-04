@@ -17,9 +17,9 @@ urlpatterns = [
 
      # uidb64 = user id encoded in base64
     path('reset/<uidb64>/<token>',  # form which allows for password to be reset
-         auth_views.PasswordResetConfirmView.as_view(template_name="authenticate/password_reset_C.html"), 
+         auth_views.PasswordResetConfirmView.as_view(template_name="authenticate/password_reset_confirm.html"), 
          name="password_reset_confirm"),
     path('reset_password_complete/',  #form which confirms password has been reset
-         auth_views.PasswordResetCompleteView.as_view(template_name="authenticate/password_reset.html"), 
+         auth_views.PasswordResetCompleteView.as_view(template_name="authenticate/password_reset_complete.html"), 
          name="password_reset_complete")
 ]
