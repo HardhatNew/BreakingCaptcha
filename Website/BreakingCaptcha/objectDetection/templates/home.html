@@ -1,0 +1,32 @@
+{% extends "base.html" %} 
+{% load static%} 
+{% block content %} 
+  {% include 'carousel.html' %}
+<div class="line"></div>
+
+<div class="container">
+  <h4>Recent Comments</h4>
+  <div class="comments">
+    {% for captcha in captchas %}
+<div class="comment">
+    <div class="comment_header">
+      <p>
+        <a href="#">{{ captcha.username }}</a>
+        &nbsp;
+      </p>
+    </div>
+    <div class="comment_body">
+      <p>{{ captcha.comments }}</p>
+      <img class="image_comment" src="../../media/{{captcha.image_path }}" alt="text" />
+      <p class="answer_captcha">{{ captcha.text_solution}}</p>
+      <div class="rate{{captcha.id}}">
+        {% include 'star.html' with rateValue=captcha.stars_rate name=captcha.id  %}
+      </div>
+    </div>
+    <div class="comment_footer"></div>
+  </div>
+  {% endfor %}
+  </div>
+</div>
+
+{% endblock %}
