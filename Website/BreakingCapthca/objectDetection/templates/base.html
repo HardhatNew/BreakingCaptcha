@@ -99,8 +99,14 @@
             <li class="nav-item">
               <a class="nav-link" href="{% url 'objectDetection' %}">Object detection</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'textDetection' %}">Text detection</a>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Text Detection
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{% url 'googleTextDetection' %}">Google API</a>
+                <a class="dropdown-item" href="{% url 'textDetection' %}">Recaptcha Model</a>
+              </div>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'voiceDetection' %}">Voice detection</a>
