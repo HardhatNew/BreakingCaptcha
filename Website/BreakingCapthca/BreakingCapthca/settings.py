@@ -29,7 +29,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'objectDetection',
-    'members'
+    'members',
+    'crispy_forms',
+    'captcha'
 ]
 
 MIDDLEWARE = [
@@ -124,4 +126,11 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'breakingcaptcha@gmail.com'
-EMAIL_HOST_PASSWORD = 'BREAKINGcaptcha_Sem12023'
+EMAIL_HOST_PASSWORD = 'kupgmrllsckhxucx'  #kupgmrllsckhxucx
+DEFAULT_FROM_EMAIL = 'BreakingCaptcha Team <noreply@breakingcaptcha.com>'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+RECAPTCHA_PUBLIC_KEY = '6LcHtRcmAAAAAEzn8nYAFjcrIDxB-QObq5ENHP9-'
+RECAPTCHA_PRIVATE_KEY = '6LcHtRcmAAAAAPAAJU1X1zaGYteFMSjTQR9_5y8A'
+SILENCED_SYSTEM_CHECKS = ['captcha.recaptcha_test_key_error']
