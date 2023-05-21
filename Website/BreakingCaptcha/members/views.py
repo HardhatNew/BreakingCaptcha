@@ -13,11 +13,6 @@ from .tokens import account_activation_token
 from django.core.mail import EmailMessage
 from .decorators import user_not_authenticated
 
-
-
-
-
-
 def login_user(request):
     if request.method == "POST":
         username = request.POST['username']
@@ -35,12 +30,10 @@ def login_user(request):
     else:
         return render(request, 'authenticate/login.html')
 
-
 def logout_user(request):
     logout(request)
     messages.info(request, 'You have been logout out!')
     return redirect('home')
-
 
 def register_user(request):
     if request.method == 'POST':
