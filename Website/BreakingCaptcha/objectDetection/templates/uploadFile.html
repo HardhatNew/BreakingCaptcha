@@ -1,0 +1,26 @@
+{% load static%}
+
+<div class="container">
+	<div class="row mt-5">
+		<div class="col-md-6 offset-md-3">
+			<form id="upload-form" action="{% url 'uploadFile' %}" enctype="multipart/form-data">
+				{% csrf_token %}
+				<div class="dropzone" id="dropzone">
+					<i class="fas fa-cloud-upload-alt"></i>
+					<div class="text-muted">Drag and drop files here or click to select files</div>
+					<input class="upload-btn" type="file" name="file" id="upload-btn" accept="image/*">
+				</div>
+				<img class="imageBOX" id="uploaded-image" style="display:none">
+				<div class="progress">
+					<div class="progress-bar" id="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+				</div>
+				
+				<button type="submit" class="btn btn-primary mt-3" id="upload-submit" disabled>Upload</button>
+			</form>
+			
+		</div>
+	</div>
+
+    <script src="https://kit.fontawesome.com/8a8365505b.js" crossorigin="anonymous"></script>
+
+	<script src="{% static 'javascript/uploadFile.js' %}"></script>
