@@ -1,0 +1,176 @@
+{% extends "base.html" %} 
+{% load static%} 
+{% block content %} 
+
+<style>
+
+#solution {
+  font-size: 24px;
+  color: black;
+  line-height: 1.5;
+  overflow: hidden;
+  animation: typing 1s steps(40, end), blink-caret .75s step-end infinite;
+  
+}
+#solution {
+  pointer-events: none;
+  opacity: 0.5;
+  background-color: #040404;
+  color: #fff;
+}
+
+#solution::-webkit-scrollbar {
+  width: 12px;
+}
+
+#solution::-webkit-scrollbar-thumb {
+  background-color: #040404;
+  border-radius: 10px;
+  border: 3px solid #fff;
+  color: #faf6f6;
+}
+
+#solution::-webkit-scrollbar-thumb:hover {
+  background-color: #aaa;
+}
+
+#solution::-webkit-scrollbar-thumb:active {
+  background-color: #777;
+}
+</style>
+<div class="container">
+
+
+  <div class="tab-content">
+    <div id="home" class="tab-pane active">
+      <h3>Google API Solution</h3>
+      {% include 'uploadFile.html' %}
+      <div class="solution">
+        <div class="solution_title">
+          <h3>Solution</h3>
+        </div>
+        <div class="solution_body">
+          <div class="left_solution">
+            <button id="crackButton" onclick="APIstartCracking()" class="bg-success" type="submit"> Breaking Captcha</button>
+            <div class="solution_progress">
+              <label for="progre">Progress:</label>
+              <div class="progress">
+                <div id="progressBC" class="progress-bar bg-success" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+              </div>
+            </div>
+          </div>
+          <div class="right_solution">
+            <textarea name="solution" id="solution" cols="30" rows="10"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="feedback">
+        {% csrf_token %}
+        <div class="ratting">
+          {% include 'RatingStar.html' %}
+        </div>
+        <div class="feedback_comment">
+          <textarea name="comment" id="comment" cols="30" rows="10" placeholder="Your feedback is important to us. Please leave a comment and rating for our solutions. Thank you!"></textarea>
+          <div class="comment_button">
+            <button id="btnComment" onclick="comment()" type="button" class="btn btn-dark btn-lg btn-block w-100">Comment</button>
+          </div>
+        </div>
+      </div>
+      </div>
+      </div>
+  
+  </div>
+
+
+   
+    <script>
+      var comment_id =  ""
+      function APIstartCracking() {
+       
+         // disable the button after it's clicked
+        document.getElementById("crackButton").disabled = true;
+       
+        const xhr = new XMLHttpRequest();
+       
+        xhr.open('GET', '/api-text-detection/');
+        xhr.onload = function() {
+          if (xhr.status === 200) {
+            const data = JSON.parse(xhr.responseText);
+            comment_id = data.id
+            alert("id", comment_id)
+            showTypingAnimation(data.data);
+            // Do something with the result
+          } else {
+            alert('Request failed. Status code: ' + xhr.status);
+          }
+        };
+        xhr.send();
+      }
+      function comment(){
+              
+        var comment = document.getElementById("comment").value;
+        var stRating = document.getElementById("rating-value").innerHTML;
+        const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+        const xhr = new XMLHttpRequest();
+       
+        xhr.open('POST', '/update-comment/');
+        xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+        xhr.setRequestHeader('X-CSRFToken', csrftoken);
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+                alert("Your comment has been sent.");
+            } else {
+                alert('Request failed. Status code: ' + xhr.status);
+            }
+        };
+        console.log(comment_id,comment, stRating)
+        var data = JSON.stringify({
+            'comment_id': comment_id,
+            'comment': comment,
+            'stRating': stRating
+        })
+       
+        xhr.send(data);
+       }
+      
+      function showTypingAnimation(data) {
+        const textarea = document.getElementById('solution');
+        const animationDelay = 100; // Delay between each character being typed
+        const animationDuration = data.length * (60 / 70) * 60; // Total time taken for the animation at 70 wpm
+        const typingSpeed = Math.round(animationDuration / data.length); // Speed at which the characters are typed
+
+        
+
+        let currentText = '';
+        let startTime = null;
+        const intervalId = setInterval(() => {
+          const elapsed = Date.now() - startTime;
+          const progressPercentage = Math.round((elapsed / animationDuration) * 100);
+          if (currentText.length < data.length) {
+            currentText += data.charAt(currentText.length);
+            textarea.innerHTML = currentText + '|';
+          } else {
+            clearInterval(intervalId);
+            textarea.innerHTML = currentText;
+            textarea.style.display = 'block';
+          }
+        }, typingSpeed);
+
+        startTime = Date.now();
+
+        // Update the progress bar
+        const progressBar = document.getElementById('progressBC');
+        const progressInterval = setInterval(() => {
+          const elapsed = Date.now() - startTime;
+          const progressPercentage = Math.round((elapsed / animationDuration) * 100);
+          if (progressPercentage >= 100) {
+            clearInterval(progressInterval);
+          }
+          progressBar.style.width = progressPercentage + '%';
+          progressBar.textContent = progressPercentage + '%';
+        }, animationDelay);
+          
+    }
+
+    </script>
+  {% endblock %}

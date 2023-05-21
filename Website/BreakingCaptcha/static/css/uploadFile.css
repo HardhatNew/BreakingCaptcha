@@ -1,0 +1,35 @@
+.dropzone {
+    border: 2px dashed #ccc;
+    padding: 100px;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.dropzone i {
+    font-size: 64px;
+    color: #ccc;
+}
+
+.dropzone .text-muted {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #999;
+}
+
+.upload-btn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.progress {
+    height: 20px;
+    margin-top: 20px;
+}
+
+  
