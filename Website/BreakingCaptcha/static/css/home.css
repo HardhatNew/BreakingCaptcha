@@ -1,27 +1,41 @@
-.carousel-caption > h5 ,.carousel-caption > p{
-    color: white !important;
+.carousel-caption > h5,
+.carousel-caption > p {
+  color: #000000 !important;
 }
-.line{
-	margin: 50px 80px;
-	border-bottom: 4px dashed #333333 ;
-	
-	
+.line {
+  margin: 50px 80px;
+  border-bottom: 4px dashed #333333;
 }
-.comments{
-margin: 10px 50px;
-
+.comments {
+  margin: 10px 50px;
 }
-.comment{
-padding: 10px 20px 30px;
-margin: 5px;
-border: 1px solid rgba(97, 97, 241, 0.369);
+.comment {
+  padding: 10px 20px 30px;
+  margin: 5px;
+  border: 1px solid rgba(97, 97, 241, 0.369);
 }
 .comment_body img.image_comment {
-    width: 200px;
-    height: 100px;
-    background-color: #333333;
+  width: 200px;
+  height: 100px;
+  background-color: #333333;
 }
-.answer_captcha{
-    margin-top: 5px;
-    font-weight: bold;
+.answer_captcha {
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+.home_img {
+  /* ('{% static "images/captcha/text.png" %}')" */
+  background-image: url("../images/robot.jpg");
+  height: 225px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+
+.test {
+  width: 80%;
+  max-width: 960px;
+  margin: 0 auto;
+  position: relative;
 }

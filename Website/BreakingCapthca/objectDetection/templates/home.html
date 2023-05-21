@@ -1,0 +1,147 @@
+{% extends "base.html" %}
+{% load static%}
+{% block content %}
+<!-- {% include 'carousel.html' %} -->
+
+<header class="masthead home_img">
+  <div class="overlay"></div>
+
+  <div class="container">
+        <div class="test">
+          <h1>Breaking Captcha</h1>
+          <span class="subheading">A HardHat Enterprises Project</span>
+        </div>
+  </div>
+</header>
+
+<div class="home_img" >a</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-lg-8 mx-auto">
+      <p class="text-center">The goal of the Breaking CAPTCHA project is to develop machine learning, AI, and
+        computer vision models to autonomously solve CAPTCHA problems. The final product of the project will
+        be to provide end users with an interface to solve these CAPTCHA problems. This user interface will
+        be the focus of future iterations</p>
+    </div>
+  </div>
+</div>
+
+<div class="line"></div>
+
+<div class="container">
+  <h4>Recent Comments</h4>
+  <div class="comments">
+    <div class="comment">
+      <div class="comment_header">
+        <p>
+          <a href="#">Ali A</a>
+          &nbsp;Fri 7 Apr 2023
+        </p>
+      </div>
+      <div class="comment_body">
+        <p>
+          I was blown away by how quickly the captchas were solved. The
+          turnaround time was amazing, and it saved me a lot of time. I highly
+          recommend this service.
+        </p>
+        <img class="image_comment" src="{% static 'images/captcha/text.png' %}" alt="text" />
+        <h5 class="answer_captcha"> fdamc</h5>
+        <div class="rate1">
+          {% include 'star.html' with rateValue=4.5 name='rate1' %}
+        </div>
+      </div>
+      <div class="comment_footer"></div>
+    </div>
+    <div class="comment">
+      <div class="comment_header">
+        <p>
+          <a href="#">Ali A</a>
+          &nbsp;Fri 7 Apr 2023
+        </p>
+      </div>
+      <div class="comment_body">
+        <p>
+          The quality of the captcha breaking was exceptional. The accuracy rate was high, and I didn't have to go back
+          and redo any of the captchas. I was very impressed.
+        </p>
+        <img class="image_comment" src="{% static 'images/captcha/cat.jpg' %}" alt="text" />
+        <h5 class="answer_captcha"> cat</h5>
+        <div class="rate2">
+          {% include 'star.html' with rateValue=2.5 name='rate2' %}
+        </div>
+      </div>
+      <div class="comment_footer"></div>
+    </div>
+    <div class="comment">
+      <div class="comment_header">
+        <p>
+          <a href="#">Ali A</a>
+          &nbsp;Fri 7 Apr 2023
+        </p>
+      </div>
+      <div class="comment_body">
+        <p>
+          I was blown away by how quickly the captchas were solved. The turnaround time was amazing, and it saved me a
+          lot of time. I highly recommend this service.
+        </p>
+        <img class="image_comment" src="{% static 'images/captcha/handwriting.jpeg' %}" alt="text" />
+        <p class="answer_captcha"> My mother, Janet Schulte, always told her daughters, "Don't marry him ....</p>
+        <div class="rate3">
+          {% include 'star.html' with rateValue=5 name='rate3' %}
+        </div>
+      </div>
+      <div class="comment_footer"></div>
+    </div>
+    <div class="comment">
+      <div class="comment_header">
+        <p>
+          <a href="#">Ali A</a>
+          &nbsp;Fri 7 Apr 2023
+        </p>
+      </div>
+      <div class="comment_body">
+        <p>
+          The accuracy rate of this service was impressive. I didn't encounter any errors or mistakes, and it provided
+          reliable results. I'm very satisfied with the service.
+        </p>
+        <img class="image_comment" src="{% static 'images/captcha/mp3.png' %}" alt="text" />
+        <p class="answer_captcha"> Efficient and accurate captcha breaking service that exceeded my expectations, with
+          impressive speed and high-quality results, leaving me completely satisfied and willing to use it again in the
+          future.</p>
+        <div class="rate4">
+          {% include 'star.html' with rateValue=3.5 name='rate4' %}
+        </div>
+      </div>
+      <div class="comment_footer"></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 col-lg-8 mx-auto">
+        <ul class="list-inline text-center">
+          <li class="list-inline-item">
+            <span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i
+                class="fa fa-twitter fa-stack-1x fa-inverse"></i></span>
+          </li>
+          <li class="list-inline-item">
+            <span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i
+                class="fa fa-facebook fa-stack-1x fa-inverse"></i></span>
+          </li>
+          <li class="list-inline-item">
+            <span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i
+                class="fa fa-github fa-stack-1x fa-inverse"></i></span>
+          </li>
+        </ul>
+        <p class="text-muted copyright">
+          Copyright&nbsp;©&nbsp;Breaking Captcha 2023
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+{% endblock %}
