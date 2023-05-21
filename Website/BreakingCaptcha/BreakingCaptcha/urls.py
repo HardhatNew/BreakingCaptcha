@@ -11,6 +11,7 @@ urlpatterns = [
     path("textDetection/", views.textDetection, name="textDetection"),
     path("googleTextDetection/", views.googleTextDetection, name="googleTextDetection"),
     path("voiceDetection/", views.voiceDetection, name="voiceDetection"),
+    path("aboutUs/", views.aboutUs, name="aboutUs"),
     path("members/", include("django.contrib.auth.urls")),
     path("members/", include("members.urls")),
     path("upload-image/", views.uploadFile, name="uploadFile"),

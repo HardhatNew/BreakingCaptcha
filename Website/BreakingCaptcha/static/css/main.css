@@ -210,4 +210,23 @@ button:hover {
     margin-top: 50px;
 
 }
-
+.social ul {
+	display: flex;
+	list-style-type: none;
+}
+.social ul li {
+	margin: 0 17px;
+}
+.social ul li a {
+	font-size: 250%;
+	color: rgb(22, 22, 22);
+}
+.logoimage {
+	width: 250px;
+	float: left;
+}
+@media (max-width: 767px) { /* The @media adjust the components when the screen's size reached as low as the value */
+	.logoimage {
+		width: 200px;
+	}
+}

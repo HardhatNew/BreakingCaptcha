@@ -33,6 +33,10 @@ def voiceDetection(request):
     return render(request, "voiceDetection.html")
 
 
+def aboutUs(request):
+    return render(request, "aboutUs.html")
+
+
 # Define new_filename as public variable
 new_filename = ""
 Username = ""
