@@ -25,14 +25,10 @@
           id="exampleInputPassword1"
         />
       </div>
-
       <button type="submit" class="btn btn-primary">Submit</button>
-      
-      <button type="submit" class="btn btn-primary" href="authenticate/password_reset.html">Forgot Password</button>
-    
+      <a href="{% url 'password_change' %}">Change password?</a>
     </div>
-  
+
   </form>
 </div>
-
 {% endblock %}
