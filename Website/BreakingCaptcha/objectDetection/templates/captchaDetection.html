@@ -43,7 +43,7 @@
 
   <div class="tab-content">
     <div id="home" class="tab-pane active">
-      <h3>Google API Solution</h3>
+      <h3 style="color:blue; font-weight: bold;">Captcha Detection</h3>
       {% include 'uploadFile.html' %}
       <div class="solution">
         <div class="solution_title">
@@ -51,7 +51,7 @@
         </div>
         <div class="solution_body">
           <div class="left_solution">
-            <button id="crackButton" onclick="APIstartCracking()" class="bg-success" type="submit"> Breaking Captcha</button>
+            <button id="crackButton" onclick="BreakingCaptcha()" class="bg-success" type="submit"> Breaking Captcha</button>
             <div class="solution_progress">
               <label for="progre">Progress:</label>
               <div class="progress">
@@ -85,19 +85,19 @@
    
     <script>
       var comment_id =  ""
-      function APIstartCracking() {
+      function BreakingCaptcha() {
        
          // disable the button after it's clicked
         document.getElementById("crackButton").disabled = true;
        
         const xhr = new XMLHttpRequest();
        
-        xhr.open('GET', '/api-text-detection/');
+        xhr.open('GET', '/captchaBreaking/');
         xhr.onload = function() {
           if (xhr.status === 200) {
             const data = JSON.parse(xhr.responseText);
             comment_id = data.id
-            // alert("id", comment_id)
+            
             showTypingAnimation(data.data);
             // Do something with the result
           } else {
