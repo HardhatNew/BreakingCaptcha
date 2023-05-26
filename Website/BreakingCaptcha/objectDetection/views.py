@@ -8,6 +8,7 @@ from django.core.files.storage import FileSystemStorage
 import cv2
 from objectDetection import apiTextDetection
 import json
+from objectDetection.captcha.captchaDetection import breakingCaptcha
 from .models import BCaptcha
 
 
@@ -27,6 +28,10 @@ def textDetection(request):
 
 def googleTextDetection(request):
     return render(request, "APITextDetection.html")
+
+
+def captchaDetection(request):
+    return render(request, "captchaDetection.html")
 
 
 def voiceDetection(request):
@@ -85,6 +90,32 @@ def APITextDetection(request):
 
         create_BC_id = comment.id
         print("id: ", create_BC_id)
+        # Return the result as a JSON response
+        response_data = {"id": create_BC_id, "data": data}
+        return JsonResponse(response_data, status=200, safe=False)
+
+
+def captchaBreaking(request):
+    if request.method == "GET":
+        # Load the image using OpenCV
+        imagePath = f"../media/{new_filename}"
+        print(imagePath)
+
+        # Pass the image to the detect_document function
+        data = breakingCaptcha(imagePath)
+        print(Username, new_filename, data)
+
+        comment = BCaptcha.create(
+            username=Username,
+            image_path=new_filename,
+            text_solution=data,
+            stars_rate=0,
+            comments="null",
+        )
+
+        create_BC_id = comment.id
+        print("id: ", create_BC_id)
+
         # Return the result as a JSON response
         response_data = {"id": create_BC_id, "data": data}
         return JsonResponse(response_data, status=200, safe=False)
